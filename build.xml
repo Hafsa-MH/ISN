@@ -1,0 +1,17 @@
+<project name="ISN" basedir="." default="run">
+    <property name="src.dir" value="src"/>
+    <property name="bin.dir" value="bin"/>
+
+    <target name="clean">
+        <delete dir="${bin.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${bin.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${bin.dir}"/>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="simple.Hello" classpath="${bin.dir}" fork="true"/>
+    </target>
+</project>
